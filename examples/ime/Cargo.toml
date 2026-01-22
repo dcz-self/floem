@@ -1,0 +1,16 @@
+[package]
+name = "ime"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+floem = { path = "../..", features = ["vello"] }
+strum = { workspace = true }
+files = { path = "../files/", optional = true }
+stacks = { path = "../stacks/", optional = true }
+tracing-subscriber = { version = "0.3.16", features = ["env-filter"] }
+
+[features]
+default = ["full"]
+vello = ["floem/vello"]
+full = ["dep:files", "dep:stacks"]
