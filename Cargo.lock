@@ -1075,15 +1075,16 @@ checksum = "75b325c5dbd37f80359721ad39aca5a29fb04c89279657cffdda8736d0c0b9d2"
 [[package]]
 name = "dpi"
 version = "0.1.2"
-dependencies = [
- "serde",
-]
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d8b14ccef22fc6f5a8f4d7d768562a182c04ce9a3b3157b91390b52ddfdf1a76"
 
 [[package]]
 name = "dpi"
 version = "0.1.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d8b14ccef22fc6f5a8f4d7d768562a182c04ce9a3b3157b91390b52ddfdf1a76"
+source = "git+https://github.com/dcz-self/winit/?branch=sync2#481857be93de05fb7e702dd3a63936af23427a91"
+dependencies = [
+ "serde",
+]
 
 [[package]]
 name = "drm"
@@ -4861,6 +4862,7 @@ dependencies = [
 [[package]]
 name = "smithay-client-toolkit"
 version = "0.20.0"
+source = "git+https://github.com/dcz-self/client-toolkit.git?branch=sync2#9c4684021b575e80132fe6b6312bb10933e9cf8e"
 dependencies = [
  "bitflags 2.10.0",
  "calloop",
@@ -6007,6 +6009,7 @@ dependencies = [
 [[package]]
 name = "wayland-backend"
 version = "0.3.12"
+source = "git+https://github.com/dcz-self/wayland-rs?branch=sync2#801d74502844541219ec35f957387bd0c3da7ee1"
 dependencies = [
  "cc",
  "downcast-rs",
@@ -6019,6 +6022,7 @@ dependencies = [
 [[package]]
 name = "wayland-client"
 version = "0.31.12"
+source = "git+https://github.com/dcz-self/wayland-rs?branch=sync2#801d74502844541219ec35f957387bd0c3da7ee1"
 dependencies = [
  "bitflags 2.10.0",
  "rustix 1.1.3",
@@ -6040,6 +6044,7 @@ dependencies = [
 [[package]]
 name = "wayland-cursor"
 version = "0.31.12"
+source = "git+https://github.com/dcz-self/wayland-rs?branch=sync2#801d74502844541219ec35f957387bd0c3da7ee1"
 dependencies = [
  "rustix 1.1.3",
  "wayland-client",
@@ -6049,6 +6054,7 @@ dependencies = [
 [[package]]
 name = "wayland-protocols"
 version = "0.32.10"
+source = "git+https://github.com/dcz-self/wayland-rs?branch=sync2#801d74502844541219ec35f957387bd0c3da7ee1"
 dependencies = [
  "bitflags 2.10.0",
  "wayland-backend",
@@ -6059,6 +6065,7 @@ dependencies = [
 [[package]]
 name = "wayland-protocols-experimental"
 version = "20251230.0.1"
+source = "git+https://github.com/dcz-self/wayland-rs?branch=sync2#801d74502844541219ec35f957387bd0c3da7ee1"
 dependencies = [
  "bitflags 2.10.0",
  "wayland-backend",
@@ -6070,6 +6077,7 @@ dependencies = [
 [[package]]
 name = "wayland-protocols-misc"
 version = "0.3.10"
+source = "git+https://github.com/dcz-self/wayland-rs?branch=sync2#801d74502844541219ec35f957387bd0c3da7ee1"
 dependencies = [
  "bitflags 2.10.0",
  "wayland-backend",
@@ -6081,6 +6089,7 @@ dependencies = [
 [[package]]
 name = "wayland-protocols-plasma"
 version = "0.3.10"
+source = "git+https://github.com/dcz-self/wayland-rs?branch=sync2#801d74502844541219ec35f957387bd0c3da7ee1"
 dependencies = [
  "bitflags 2.10.0",
  "wayland-backend",
@@ -6092,6 +6101,7 @@ dependencies = [
 [[package]]
 name = "wayland-protocols-wlr"
 version = "0.3.10"
+source = "git+https://github.com/dcz-self/wayland-rs?branch=sync2#801d74502844541219ec35f957387bd0c3da7ee1"
 dependencies = [
  "bitflags 2.10.0",
  "wayland-backend",
@@ -6103,6 +6113,7 @@ dependencies = [
 [[package]]
 name = "wayland-scanner"
 version = "0.31.8"
+source = "git+https://github.com/dcz-self/wayland-rs?branch=sync2#801d74502844541219ec35f957387bd0c3da7ee1"
 dependencies = [
  "proc-macro2 1.0.105",
  "quick-xml",
@@ -6112,6 +6123,7 @@ dependencies = [
 [[package]]
 name = "wayland-sys"
 version = "0.31.8"
+source = "git+https://github.com/dcz-self/wayland-rs?branch=sync2#801d74502844541219ec35f957387bd0c3da7ee1"
 dependencies = [
  "dlib",
  "log",
@@ -6742,11 +6754,12 @@ checksum = "d6bbff5f0aada427a1e5a6da5f1f98158182f26556f345ac9e04d36d0ebed650"
 [[package]]
 name = "winit"
 version = "0.30.12"
+source = "git+https://github.com/dcz-self/winit/?branch=sync2#481857be93de05fb7e702dd3a63936af23427a91"
 dependencies = [
  "bitflags 2.10.0",
  "cfg_aliases",
  "cursor-icon",
- "dpi 0.1.2",
+ "dpi 0.1.2 (git+https://github.com/dcz-self/winit/?branch=sync2)",
  "libc",
  "raw-window-handle",
  "rustix 1.1.3",
@@ -6768,10 +6781,11 @@ dependencies = [
 [[package]]
 name = "winit-android"
 version = "0.30.12"
+source = "git+https://github.com/dcz-self/winit/?branch=sync2#481857be93de05fb7e702dd3a63936af23427a91"
 dependencies = [
  "android-activity",
  "bitflags 2.10.0",
- "dpi 0.1.2",
+ "dpi 0.1.2 (git+https://github.com/dcz-self/winit/?branch=sync2)",
  "ndk",
  "raw-window-handle",
  "smol_str 0.3.5",
@@ -6782,11 +6796,12 @@ dependencies = [
 [[package]]
 name = "winit-appkit"
 version = "0.30.12"
+source = "git+https://github.com/dcz-self/winit/?branch=sync2#481857be93de05fb7e702dd3a63936af23427a91"
 dependencies = [
  "bitflags 2.10.0",
  "block2 0.6.2",
  "dispatch2",
- "dpi 0.1.2",
+ "dpi 0.1.2 (git+https://github.com/dcz-self/winit/?branch=sync2)",
  "objc2 0.6.3",
  "objc2-app-kit 0.3.2",
  "objc2-core-foundation",
@@ -6803,6 +6818,7 @@ dependencies = [
 [[package]]
 name = "winit-common"
 version = "0.30.12"
+source = "git+https://github.com/dcz-self/winit/?branch=sync2#481857be93de05fb7e702dd3a63936af23427a91"
 dependencies = [
  "memmap2",
  "objc2 0.6.3",
@@ -6817,10 +6833,11 @@ dependencies = [
 [[package]]
 name = "winit-core"
 version = "0.30.12"
+source = "git+https://github.com/dcz-self/winit/?branch=sync2#481857be93de05fb7e702dd3a63936af23427a91"
 dependencies = [
  "bitflags 2.10.0",
  "cursor-icon",
- "dpi 0.1.2",
+ "dpi 0.1.2 (git+https://github.com/dcz-self/winit/?branch=sync2)",
  "keyboard-types 0.8.3",
  "raw-window-handle",
  "serde",
@@ -6831,9 +6848,10 @@ dependencies = [
 [[package]]
 name = "winit-orbital"
 version = "0.30.12"
+source = "git+https://github.com/dcz-self/winit/?branch=sync2#481857be93de05fb7e702dd3a63936af23427a91"
 dependencies = [
  "bitflags 2.10.0",
- "dpi 0.1.2",
+ "dpi 0.1.2 (git+https://github.com/dcz-self/winit/?branch=sync2)",
  "orbclient",
  "raw-window-handle",
  "redox_syscall 0.5.18",
@@ -6845,11 +6863,12 @@ dependencies = [
 [[package]]
 name = "winit-uikit"
 version = "0.30.12"
+source = "git+https://github.com/dcz-self/winit/?branch=sync2#481857be93de05fb7e702dd3a63936af23427a91"
 dependencies = [
  "bitflags 2.10.0",
  "block2 0.6.2",
  "dispatch2",
- "dpi 0.1.2",
+ "dpi 0.1.2 (git+https://github.com/dcz-self/winit/?branch=sync2)",
  "objc2 0.6.3",
  "objc2-core-foundation",
  "objc2-foundation 0.3.2",
@@ -6865,12 +6884,13 @@ dependencies = [
 [[package]]
 name = "winit-wayland"
 version = "0.30.12"
+source = "git+https://github.com/dcz-self/winit/?branch=sync2#481857be93de05fb7e702dd3a63936af23427a91"
 dependencies = [
  "ahash",
  "bitflags 2.10.0",
  "calloop",
  "cursor-icon",
- "dpi 0.1.2",
+ "dpi 0.1.2 (git+https://github.com/dcz-self/winit/?branch=sync2)",
  "libc",
  "memmap2",
  "raw-window-handle",
@@ -6890,12 +6910,13 @@ dependencies = [
 [[package]]
 name = "winit-web"
 version = "0.30.12"
+source = "git+https://github.com/dcz-self/winit/?branch=sync2#481857be93de05fb7e702dd3a63936af23427a91"
 dependencies = [
  "atomic-waker",
  "bitflags 2.10.0",
  "concurrent-queue",
  "cursor-icon",
- "dpi 0.1.2",
+ "dpi 0.1.2 (git+https://github.com/dcz-self/winit/?branch=sync2)",
  "js-sys",
  "pin-project",
  "raw-window-handle",
@@ -6911,10 +6932,11 @@ dependencies = [
 [[package]]
 name = "winit-win32"
 version = "0.30.12"
+source = "git+https://github.com/dcz-self/winit/?branch=sync2#481857be93de05fb7e702dd3a63936af23427a91"
 dependencies = [
  "bitflags 2.10.0",
  "cursor-icon",
- "dpi 0.1.2",
+ "dpi 0.1.2 (git+https://github.com/dcz-self/winit/?branch=sync2)",
  "raw-window-handle",
  "smol_str 0.3.5",
  "tracing",
@@ -6926,12 +6948,13 @@ dependencies = [
 [[package]]
 name = "winit-x11"
 version = "0.30.12"
+source = "git+https://github.com/dcz-self/winit/?branch=sync2#481857be93de05fb7e702dd3a63936af23427a91"
 dependencies = [
  "bitflags 2.10.0",
  "bytemuck",
  "calloop",
  "cursor-icon",
- "dpi 0.1.2",
+ "dpi 0.1.2 (git+https://github.com/dcz-self/winit/?branch=sync2)",
  "libc",
  "percent-encoding",
  "raw-window-handle",
@@ -7238,11 +7261,9 @@ dependencies = [
 [[patch.unused]]
 name = "wayland-egl"
 version = "0.32.9"
+source = "git+https://github.com/dcz-self/wayland-rs?branch=sync2#801d74502844541219ec35f957387bd0c3da7ee1"
 
 [[patch.unused]]
 name = "wayland-server"
 version = "0.31.11"
-
-[[patch.unused]]
-name = "wayland-tests"
-version = "0.1.9"
+source = "git+https://github.com/dcz-self/wayland-rs?branch=sync2#801d74502844541219ec35f957387bd0c3da7ee1"
