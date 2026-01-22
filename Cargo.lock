@@ -1075,16 +1075,15 @@ checksum = "75b325c5dbd37f80359721ad39aca5a29fb04c89279657cffdda8736d0c0b9d2"
 [[package]]
 name = "dpi"
 version = "0.1.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d8b14ccef22fc6f5a8f4d7d768562a182c04ce9a3b3157b91390b52ddfdf1a76"
+dependencies = [
+ "serde",
+]
 
 [[package]]
 name = "dpi"
 version = "0.1.2"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
-dependencies = [
- "serde",
-]
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d8b14ccef22fc6f5a8f4d7d768562a182c04ce9a3b3157b91390b52ddfdf1a76"
 
 [[package]]
 name = "drm"
@@ -1366,7 +1365,6 @@ dependencies = [
  "dpi 0.1.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "educe",
  "floem-editor-core",
- "floem-winit",
  "floem_reactive",
  "floem_renderer",
  "floem_tiny_skia_renderer",
@@ -1404,6 +1402,7 @@ dependencies = [
  "wasm-bindgen-futures",
  "web-time",
  "wgpu",
+ "winit",
 ]
 
 [[package]]
@@ -1441,223 +1440,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "floem-winit"
-version = "25.10.0"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
-dependencies = [
- "bitflags 2.10.0",
- "cfg_aliases",
- "cursor-icon",
- "dpi 0.1.2 (git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1)",
- "floem-winit-android",
- "floem-winit-appkit",
- "floem-winit-common",
- "floem-winit-core",
- "floem-winit-orbital",
- "floem-winit-uikit",
- "floem-winit-wayland",
- "floem-winit-web",
- "floem-winit-win32",
- "floem-winit-x11",
- "libc",
- "raw-window-handle",
- "rustix 1.1.3",
- "serde",
- "smol_str 0.3.5",
- "tracing",
-]
-
-[[package]]
-name = "floem-winit-android"
-version = "25.10.0"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
-dependencies = [
- "android-activity",
- "bitflags 2.10.0",
- "dpi 0.1.2 (git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1)",
- "floem-winit-core",
- "ndk",
- "raw-window-handle",
- "smol_str 0.3.5",
- "tracing",
-]
-
-[[package]]
-name = "floem-winit-appkit"
-version = "25.10.0"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
-dependencies = [
- "bitflags 2.10.0",
- "block2 0.6.2",
- "dispatch2",
- "dpi 0.1.2 (git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1)",
- "floem-winit-common",
- "floem-winit-core",
- "objc2 0.6.3",
- "objc2-app-kit 0.3.2",
- "objc2-core-foundation",
- "objc2-core-graphics",
- "objc2-core-video",
- "objc2-foundation 0.3.2",
- "raw-window-handle",
- "smol_str 0.3.5",
- "tracing",
-]
-
-[[package]]
-name = "floem-winit-common"
-version = "25.10.0"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
-dependencies = [
- "floem-winit-core",
- "memmap2",
- "objc2 0.6.3",
- "objc2-core-foundation",
- "smol_str 0.3.5",
- "tracing",
- "x11-dl",
- "xkbcommon-dl",
-]
-
-[[package]]
-name = "floem-winit-core"
-version = "25.10.0"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
-dependencies = [
- "bitflags 2.10.0",
- "cursor-icon",
- "dpi 0.1.2 (git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1)",
- "keyboard-types 0.8.3",
- "raw-window-handle",
- "serde",
- "smol_str 0.3.5",
- "web-time",
-]
-
-[[package]]
-name = "floem-winit-orbital"
-version = "25.10.0"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
-dependencies = [
- "bitflags 2.10.0",
- "dpi 0.1.2 (git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1)",
- "floem-winit-core",
- "orbclient",
- "raw-window-handle",
- "redox_syscall 0.5.18",
- "smol_str 0.3.5",
- "tracing",
-]
-
-[[package]]
-name = "floem-winit-uikit"
-version = "25.10.0"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
-dependencies = [
- "bitflags 2.10.0",
- "block2 0.6.2",
- "dispatch2",
- "dpi 0.1.2 (git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1)",
- "floem-winit-common",
- "floem-winit-core",
- "objc2 0.6.3",
- "objc2-core-foundation",
- "objc2-foundation 0.3.2",
- "objc2-ui-kit",
- "raw-window-handle",
- "serde",
- "smol_str 0.3.5",
- "tracing",
-]
-
-[[package]]
-name = "floem-winit-wayland"
-version = "25.10.0"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
-dependencies = [
- "ahash",
- "bitflags 2.10.0",
- "calloop",
- "cursor-icon",
- "dpi 0.1.2 (git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1)",
- "floem-winit-common",
- "floem-winit-core",
- "libc",
- "memmap2",
- "raw-window-handle",
- "rustix 1.1.3",
- "sctk-adwaita",
- "smithay-client-toolkit",
- "smol_str 0.3.5",
- "tracing",
- "wayland-backend",
- "wayland-client",
- "wayland-protocols",
- "wayland-protocols-plasma",
-]
-
-[[package]]
-name = "floem-winit-web"
-version = "25.10.0"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
-dependencies = [
- "atomic-waker",
- "bitflags 2.10.0",
- "concurrent-queue",
- "cursor-icon",
- "dpi 0.1.2 (git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1)",
- "floem-winit-core",
- "js-sys",
- "pin-project",
- "raw-window-handle",
- "smol_str 0.3.5",
- "tracing",
- "wasm-bindgen",
- "wasm-bindgen-futures",
- "web-sys",
- "web-time",
-]
-
-[[package]]
-name = "floem-winit-win32"
-version = "25.10.0"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
-dependencies = [
- "bitflags 2.10.0",
- "cursor-icon",
- "dpi 0.1.2 (git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1)",
- "floem-winit-core",
- "raw-window-handle",
- "smol_str 0.3.5",
- "tracing",
- "unicode-segmentation",
- "windows-sys 0.59.0",
-]
-
-[[package]]
-name = "floem-winit-x11"
-version = "25.10.0"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
-dependencies = [
- "bitflags 2.10.0",
- "bytemuck",
- "calloop",
- "cursor-icon",
- "dpi 0.1.2 (git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1)",
- "floem-winit-common",
- "floem-winit-core",
- "libc",
- "percent-encoding",
- "raw-window-handle",
- "rustix 1.1.3",
- "smol_str 0.3.5",
- "tracing",
- "x11-dl",
- "x11rb",
- "xkbcommon-dl",
-]
-
-[[package]]
 name = "floem_reactive"
 version = "0.2.0"
 dependencies = [
@@ -1671,7 +1453,6 @@ version = "0.2.0"
 dependencies = [
  "cosmic-text",
  "crossbeam",
- "floem-winit",
  "futures",
  "parking_lot",
  "peniko",
@@ -1680,6 +1461,7 @@ dependencies = [
  "unicode-segmentation",
  "wasm-bindgen-futures",
  "wgpu",
+ "winit",
 ]
 
 [[package]]
@@ -2681,6 +2463,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "ime"
+version = "0.1.0"
+dependencies = [
+ "files",
+ "floem",
+ "stacks",
+ "strum",
+ "tracing-subscriber",
+]
+
+[[package]]
 name = "imgref"
 version = "1.12.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2924,6 +2717,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "lazy_static"
+version = "1.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bbd2bcb4c963f2ddae06a2efc7e9f3591312473c50c6685e1f298068316e66fe"
+
+[[package]]
 name = "lebe"
 version = "0.5.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3073,6 +2872,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "62bb907fe88d54d8d9ce32a3cceab4218ed2f6b7d35617cafe9adf84e43919cb"
 dependencies = [
  "libc",
+]
+
+[[package]]
+name = "matchers"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d1525a2a28c7f4fa0fc98bb91ae755d1e2d1505079e05539e35bc876b5d65ae9"
+dependencies = [
+ "regex-automata",
 ]
 
 [[package]]
@@ -3283,6 +3091,15 @@ checksum = "0bfa50149c05ca80b01c6a30452084a98d96279f911df8b6840bd18b068cc120"
 dependencies = [
  "cc",
  "image 0.19.0",
+]
+
+[[package]]
+name = "nu-ansi-term"
+version = "0.50.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7957b9740744892f114936ab4a57b3f487491bbeafaf8083688b16841a4240e5"
+dependencies = [
+ "windows-sys 0.61.2",
 ]
 
 [[package]]
@@ -4946,6 +4763,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "sharded-slab"
+version = "0.1.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f40ca3c46823713e0d4209592e8d6e826aa57e928f09752619fc696c499637f6"
+dependencies = [
+ "lazy_static",
+]
+
+[[package]]
 name = "shlex"
 version = "1.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5035,8 +4861,6 @@ dependencies = [
 [[package]]
 name = "smithay-client-toolkit"
 version = "0.20.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0512da38f5e2b31201a93524adb8d3136276fa4fe4aafab4e1f727a82b534cc0"
 dependencies = [
  "bitflags 2.10.0",
  "calloop",
@@ -5432,6 +5256,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "thread_local"
+version = "1.1.9"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f60246a4944f24f6e018aa17cdeffb7818b76356965d03b07d6a9886e8962185"
+dependencies = [
+ "cfg-if",
+]
+
+[[package]]
 name = "tiff"
 version = "0.10.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5738,6 +5571,36 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "db97caf9d906fbde555dd62fa95ddba9eecfd14cb388e4f491a66d74cd5fb79a"
 dependencies = [
  "once_cell",
+ "valuable",
+]
+
+[[package]]
+name = "tracing-log"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ee855f1f400bd0e5c02d150ae5de3840039a3f54b025156404e34c23c03f47c3"
+dependencies = [
+ "log",
+ "once_cell",
+ "tracing-core",
+]
+
+[[package]]
+name = "tracing-subscriber"
+version = "0.3.22"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2f30143827ddab0d256fd843b7a66d164e9f271cfa0dde49142c5ca0ca291f1e"
+dependencies = [
+ "matchers",
+ "nu-ansi-term",
+ "once_cell",
+ "regex-automata",
+ "sharded-slab",
+ "smallvec",
+ "thread_local",
+ "tracing",
+ "tracing-core",
+ "tracing-log",
 ]
 
 [[package]]
@@ -5798,8 +5661,8 @@ name = "ui-events-floem-winit"
 version = "0.2.0"
 dependencies = [
  "dpi 0.1.2 (registry+https://github.com/rust-lang/crates.io-index)",
- "floem-winit",
  "ui-events",
+ "winit",
 ]
 
 [[package]]
@@ -5953,6 +5816,12 @@ dependencies = [
  "num-traits",
  "wasm-bindgen",
 ]
+
+[[package]]
+name = "valuable"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ba73ea9cf16a25df0c8caa16c51acb937d5712a8429db78a3ee29d5dcacd3a65"
 
 [[package]]
 name = "vcpkg"
@@ -6138,8 +6007,6 @@ dependencies = [
 [[package]]
 name = "wayland-backend"
 version = "0.3.12"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fee64194ccd96bf648f42a65a7e589547096dfa702f7cadef84347b66ad164f9"
 dependencies = [
  "cc",
  "downcast-rs",
@@ -6152,8 +6019,6 @@ dependencies = [
 [[package]]
 name = "wayland-client"
 version = "0.31.12"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b8e6faa537fbb6c186cb9f1d41f2f811a4120d1b57ec61f50da451a0c5122bec"
 dependencies = [
  "bitflags 2.10.0",
  "rustix 1.1.3",
@@ -6175,8 +6040,6 @@ dependencies = [
 [[package]]
 name = "wayland-cursor"
 version = "0.31.12"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5864c4b5b6064b06b1e8b74ead4a98a6c45a285fe7a0e784d24735f011fdb078"
 dependencies = [
  "rustix 1.1.3",
  "wayland-client",
@@ -6186,8 +6049,6 @@ dependencies = [
 [[package]]
 name = "wayland-protocols"
 version = "0.32.10"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "baeda9ffbcfc8cd6ddaade385eaf2393bd2115a69523c735f12242353c3df4f3"
 dependencies = [
  "bitflags 2.10.0",
  "wayland-backend",
@@ -6197,9 +6058,7 @@ dependencies = [
 
 [[package]]
 name = "wayland-protocols-experimental"
-version = "20250721.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "40a1f863128dcaaec790d7b4b396cc9b9a7a079e878e18c47e6c2d2c5a8dcbb1"
+version = "20251230.0.1"
 dependencies = [
  "bitflags 2.10.0",
  "wayland-backend",
@@ -6211,8 +6070,6 @@ dependencies = [
 [[package]]
 name = "wayland-protocols-misc"
 version = "0.3.10"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "791c58fdeec5406aa37169dd815327d1e47f334219b523444bc26d70ceb4c34e"
 dependencies = [
  "bitflags 2.10.0",
  "wayland-backend",
@@ -6224,8 +6081,6 @@ dependencies = [
 [[package]]
 name = "wayland-protocols-plasma"
 version = "0.3.10"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "aa98634619300a535a9a97f338aed9a5ff1e01a461943e8346ff4ae26007306b"
 dependencies = [
  "bitflags 2.10.0",
  "wayland-backend",
@@ -6237,8 +6092,6 @@ dependencies = [
 [[package]]
 name = "wayland-protocols-wlr"
 version = "0.3.10"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e9597cdf02cf0c34cd5823786dce6b5ae8598f05c2daf5621b6e178d4f7345f3"
 dependencies = [
  "bitflags 2.10.0",
  "wayland-backend",
@@ -6250,8 +6103,6 @@ dependencies = [
 [[package]]
 name = "wayland-scanner"
 version = "0.31.8"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5423e94b6a63e68e439803a3e153a9252d5ead12fd853334e2ad33997e3889e3"
 dependencies = [
  "proc-macro2 1.0.105",
  "quick-xml",
@@ -6261,8 +6112,6 @@ dependencies = [
 [[package]]
 name = "wayland-sys"
 version = "0.31.8"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1e6dbfc3ac5ef974c92a2235805cc0114033018ae1290a72e474aa8b28cbbdfd"
 dependencies = [
  "dlib",
  "log",
@@ -6891,6 +6740,212 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d6bbff5f0aada427a1e5a6da5f1f98158182f26556f345ac9e04d36d0ebed650"
 
 [[package]]
+name = "winit"
+version = "0.30.12"
+dependencies = [
+ "bitflags 2.10.0",
+ "cfg_aliases",
+ "cursor-icon",
+ "dpi 0.1.2",
+ "libc",
+ "raw-window-handle",
+ "rustix 1.1.3",
+ "serde",
+ "smol_str 0.3.5",
+ "tracing",
+ "winit-android",
+ "winit-appkit",
+ "winit-common",
+ "winit-core",
+ "winit-orbital",
+ "winit-uikit",
+ "winit-wayland",
+ "winit-web",
+ "winit-win32",
+ "winit-x11",
+]
+
+[[package]]
+name = "winit-android"
+version = "0.30.12"
+dependencies = [
+ "android-activity",
+ "bitflags 2.10.0",
+ "dpi 0.1.2",
+ "ndk",
+ "raw-window-handle",
+ "smol_str 0.3.5",
+ "tracing",
+ "winit-core",
+]
+
+[[package]]
+name = "winit-appkit"
+version = "0.30.12"
+dependencies = [
+ "bitflags 2.10.0",
+ "block2 0.6.2",
+ "dispatch2",
+ "dpi 0.1.2",
+ "objc2 0.6.3",
+ "objc2-app-kit 0.3.2",
+ "objc2-core-foundation",
+ "objc2-core-graphics",
+ "objc2-core-video",
+ "objc2-foundation 0.3.2",
+ "raw-window-handle",
+ "smol_str 0.3.5",
+ "tracing",
+ "winit-common",
+ "winit-core",
+]
+
+[[package]]
+name = "winit-common"
+version = "0.30.12"
+dependencies = [
+ "memmap2",
+ "objc2 0.6.3",
+ "objc2-core-foundation",
+ "smol_str 0.3.5",
+ "tracing",
+ "winit-core",
+ "x11-dl",
+ "xkbcommon-dl",
+]
+
+[[package]]
+name = "winit-core"
+version = "0.30.12"
+dependencies = [
+ "bitflags 2.10.0",
+ "cursor-icon",
+ "dpi 0.1.2",
+ "keyboard-types 0.8.3",
+ "raw-window-handle",
+ "serde",
+ "smol_str 0.3.5",
+ "web-time",
+]
+
+[[package]]
+name = "winit-orbital"
+version = "0.30.12"
+dependencies = [
+ "bitflags 2.10.0",
+ "dpi 0.1.2",
+ "orbclient",
+ "raw-window-handle",
+ "redox_syscall 0.5.18",
+ "smol_str 0.3.5",
+ "tracing",
+ "winit-core",
+]
+
+[[package]]
+name = "winit-uikit"
+version = "0.30.12"
+dependencies = [
+ "bitflags 2.10.0",
+ "block2 0.6.2",
+ "dispatch2",
+ "dpi 0.1.2",
+ "objc2 0.6.3",
+ "objc2-core-foundation",
+ "objc2-foundation 0.3.2",
+ "objc2-ui-kit",
+ "raw-window-handle",
+ "serde",
+ "smol_str 0.3.5",
+ "tracing",
+ "winit-common",
+ "winit-core",
+]
+
+[[package]]
+name = "winit-wayland"
+version = "0.30.12"
+dependencies = [
+ "ahash",
+ "bitflags 2.10.0",
+ "calloop",
+ "cursor-icon",
+ "dpi 0.1.2",
+ "libc",
+ "memmap2",
+ "raw-window-handle",
+ "rustix 1.1.3",
+ "sctk-adwaita",
+ "smithay-client-toolkit",
+ "smol_str 0.3.5",
+ "tracing",
+ "wayland-backend",
+ "wayland-client",
+ "wayland-protocols",
+ "wayland-protocols-plasma",
+ "winit-common",
+ "winit-core",
+]
+
+[[package]]
+name = "winit-web"
+version = "0.30.12"
+dependencies = [
+ "atomic-waker",
+ "bitflags 2.10.0",
+ "concurrent-queue",
+ "cursor-icon",
+ "dpi 0.1.2",
+ "js-sys",
+ "pin-project",
+ "raw-window-handle",
+ "smol_str 0.3.5",
+ "tracing",
+ "wasm-bindgen",
+ "wasm-bindgen-futures",
+ "web-sys",
+ "web-time",
+ "winit-core",
+]
+
+[[package]]
+name = "winit-win32"
+version = "0.30.12"
+dependencies = [
+ "bitflags 2.10.0",
+ "cursor-icon",
+ "dpi 0.1.2",
+ "raw-window-handle",
+ "smol_str 0.3.5",
+ "tracing",
+ "unicode-segmentation",
+ "windows-sys 0.59.0",
+ "winit-core",
+]
+
+[[package]]
+name = "winit-x11"
+version = "0.30.12"
+dependencies = [
+ "bitflags 2.10.0",
+ "bytemuck",
+ "calloop",
+ "cursor-icon",
+ "dpi 0.1.2",
+ "libc",
+ "percent-encoding",
+ "raw-window-handle",
+ "rustix 1.1.3",
+ "smol_str 0.3.5",
+ "tracing",
+ "winit-common",
+ "winit-core",
+ "x11-dl",
+ "x11rb",
+ "xkbcommon-dl",
+]
+
+[[package]]
 name = "winnow"
 version = "0.5.40"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -7179,3 +7234,15 @@ checksum = "e35aee689668bf9bd6f6f3a6c60bb29ba1244b3b43adfd50edd554a371da37d5"
 dependencies = [
  "zune-core 0.5.0",
 ]
+
+[[patch.unused]]
+name = "wayland-egl"
+version = "0.32.9"
+
+[[patch.unused]]
+name = "wayland-server"
+version = "0.31.11"
+
+[[patch.unused]]
+name = "wayland-tests"
+version = "0.1.9"

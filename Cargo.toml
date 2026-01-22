@@ -57,7 +57,8 @@ wgpu = { version = "26.0" }
 parking_lot = { version = "0.12" }
 swash = { version = "0.2" }
 muda = { version = "0.17.1", default-features = false }
-winit = { git = "https://github.com/lapce/winit", rev = "133268de675a4fda70816d78a7a1435eb972fea1", package = "floem-winit" }
+#winit = { git = "https://github.com/lapce/winit", rev = "133268de675a4fda70816d78a7a1435eb972fea1", package = "floem-winit" }
+winit = { path = "../winit/winit" }
 ui-events = { version = "0.2", features = ["kurbo"] }
 ui-events-winit = { path = "./ui-events-winit", package = "ui-events-floem-winit" }
 dpi = { version = "0.1.2", default-features = false }
@@ -191,3 +192,24 @@ harness = false
 [[bench]]
 name = "animation"
 harness = false
+
+#[patch."https://github.com/lapce/vger-rs"]
+#floem-vger = { path="../vger-rs" }
+
+[patch.crates-io]
+wayland-backend = { path="../wayland-rs/wayland-backend" }
+#sctk = { git = "https://github.com/dcz-self/client-toolkit.git", branch = "filter", package = "smithay-client-toolkit", version = "0.20.0" }
+wayland-client = { path="../wayland-rs/wayland-client" }
+wayland-cursor = { path="../wayland-rs/wayland-cursor" }
+wayland-egl = { path="../wayland-rs/wayland-egl" }
+wayland-protocols = { path="../wayland-rs/wayland-protocols" }
+wayland-protocols-experimental = { path="../wayland-rs/wayland-protocols-experimental" }
+wayland-protocols-misc = { path="../wayland-rs/wayland-protocols-misc" }
+wayland-protocols-plasma = { path="../wayland-rs/wayland-protocols-plasma" }
+wayland-protocols-wlr = { path="../wayland-rs/wayland-protocols-wlr" }
+wayland-scanner = { path="../wayland-rs/wayland-scanner" }
+wayland-server = { path="../wayland-rs/wayland-server" }
+wayland-sys = { path="../wayland-rs/wayland-sys" }
+wayland-tests = { path="../wayland-rs/wayland-tests" }
+
+sctk = { path="../client-toolkit", package = "smithay-client-toolkit", version = "0.20.0" }

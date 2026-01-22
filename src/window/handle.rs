@@ -1289,6 +1289,9 @@ impl WindowHandle {
             Ime::DeleteSurrounding { .. } => {
                 // TODO?
             }
+            other => {
+                dbg!("unimplamemdn {other:?}");
+            }
         }
     }
 
