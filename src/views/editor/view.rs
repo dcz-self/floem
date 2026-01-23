@@ -12,14 +12,11 @@ use crate::{
     style_class,
     taffy::tree::NodeId,
     text::{Attrs, AttrsList, TextLayout},
-    view::ViewId,
-    view::{IntoView, View},
+    view::{IntoView, View, ViewId},
     views::{Decorators, Scroll, Stack, editor::keypress::KeypressKey},
 };
 use floem_editor_core::{
-    command::EditCommand,
-    cursor::{ColPosition, CursorAffinity, CursorMode},
-    mode::{Mode, VisualMode},
+    command::EditCommand, cursor::{ColPosition, CursorAffinity, CursorMode}, editor::EditType, mode::{Mode, VisualMode}, selection::Selection
 };
 use floem_reactive::{SignalGet, SignalTrack, SignalUpdate, SignalWith};
 use ui_events::{
@@ -1075,6 +1072,37 @@ pub fn editor_view(
 
                     ed.set_preedit(text.clone(), *cursor, offset);
                 }
+            });
+        }
+        EventPropagation::Stop
+    })
+    .on_event(EventListener::ImeDeleteSurrounding, move |event| {
+        if !is_active.get_untracked() || !focused.get_untracked() {
+            return EventPropagation::Continue;
+        }
+
+        if let Event::ImeDeleteSurrounding { before_bytes, after_bytes } = event {
+            editor.with_untracked(|ed| {
+                dbg!(before_bytes, after_bytes);
+                let offset = ed.cursor.with_untracked(|c| dbg!(c.offset()));
+                let text = ed.doc().text();
+                let before_offset = offset.saturating_sub(*before_bytes);
+                let before_offset = if text.is_codepoint_boundary(before_offset) {
+                    dbg!(before_offset)
+                } else {
+                    text.prev_codepoint_offset(before_offset).unwrap_or(0)
+                };
+                let after_offset = offset + after_bytes;
+                let after_offset = if text.is_codepoint_boundary(after_offset) {
+                    dbg!(after_offset)
+                } else {
+                    text.next_codepoint_offset(after_offset).unwrap_or(text.len())
+                };
+                ed.doc().edit_single(
+                    dbg!(Selection::region(before_offset, after_offset, CursorAffinity::Backward)),
+                    "",
+                    EditType::DeleteSelection,
+                );
             });
         }
         EventPropagation::Stop
